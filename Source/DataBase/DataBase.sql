@@ -11,7 +11,7 @@ go
 
 create table NhanVien
 (
-	MANV varchar(30) primary key,
+	MANV int identity(1,1) primary key,
 	HOTEN nvarchar(100) NOT NULL,
 	LUONG float,
 	NGSINH date,    
@@ -30,11 +30,11 @@ create table NhanVien
 
 create table MonAn
 (
-	MAMON varchar(30) primary key,
+	MAMON int identity(1,1) primary key,
 	TENMON nvarchar(100),
 	GIA float not null,
 	MOTA nvarchar(200) not null,
-	MALOAI varchar(30) not null,
+	MALOAI int not null,
 	HINHANH image,
 	TTSP nvarchar(30),
 	ISDEL int DEFAULT 0,
@@ -43,7 +43,7 @@ create table MonAn
 )
 create table LoaiMonAn
 (
-	MALOAI varchar(30) primary key,
+	MALOAI int identity(1,1) primary key,
 	TENLOAI nvarchar(100),
 	ISDEL int DEFAULT 0,
 	CREADTEDAT datetime,
@@ -51,10 +51,12 @@ create table LoaiMonAn
 )
 create table DonHang
 (
-	MADH int primary key,
-	MANV varchar(30),
+	MADH int identity(1,1) primary key,
+	MANV int,
+	THOIGIAN datetime,
 	TONGTIEN float not null,
 	TENKH nvarchar(30),
+	GIAMGIA float,
 	ISDEL int DEFAULT 0,
 	CREADTEDAT datetime,
 	UPDATEDAT datetime
@@ -63,7 +65,7 @@ create table ChiTietDonhang
 (
 	MADH int not null,
 	ID int not null,
-	MAMON VARCHAR(30) not null,
+	MAMON int not null,
 	SOLUONG  FLOAT not null,
 	DONGIA FLOAT not null,
 	THANHTIEN  FLOAT not null,
@@ -76,9 +78,9 @@ create table ChiTietDonhang
 )
 create table LichLamViec
 (
-	MANV  varchar(30) not null,
+	MANV  int identity(1,1) not null,
 	THU nvarchar(30) not null,
-	MACALV varchar(30) not null,
+	MACALV int not null,
 	PHUCAP float,
 	ISDEL int DEFAULT 0,
 	CREADTEDAT datetime,
@@ -86,7 +88,7 @@ create table LichLamViec
 )
 create table CaLamViec
 (
-	MACALV varchar(30) primary key,
+	MACALV int identity(1,1) primary key,
 	TENCA nvarchar(30),
 	GIOBATDAU time,
 	GIOKETTHUC time,
@@ -135,14 +137,17 @@ alter table MonAn add
 GO	
 
 
+SET IDENTITY_INSERT NhanVien on
 
 insert into NhanVien (MANV,HOTEN,LUONG,NGSINH,PHAI,DIACHI,CMND,DIENTHOAI,CHUCVU,TAIKHOAN ,MATKHAU,ISDEL,CREADTEDAT,UPDATEDAT)
-values('NV01',N'Trương Văn Tú',2000,CAST(N'1959-06-20' AS Date),'Nam',N'167 Lương Nhữ Học Phường 11 Quận 5 HCM','123456','0978966563','Admin','admin','db69fc039dcbd2962cb4d28f5891aae1',0,CAST(N'1959-06-20' AS Date),CAST(N'1959-06-20' AS Date))
+values(1,N'Trương Văn Tú',2000,CAST(N'1959-06-20' AS Date),'Nam',N'167 Lương Nhữ Học Phường 11 Quận 5 HCM','123456','0978966563','Admin','admin','db69fc039dcbd2962cb4d28f5891aae1',0,CAST(N'1959-06-20' AS Date),CAST(N'1959-06-20' AS Date))
+
+SET IDENTITY_INSERT NhanVien on
 
 insert into NhanVien (MANV,HOTEN,LUONG,NGSINH,PHAI,DIACHI,CMND,DIENTHOAI,CHUCVU,TAIKHOAN ,MATKHAU,ISDEL,CREADTEDAT,UPDATEDAT)
-values ('NV03',N'Nguyễn Chánh Anh Tuấn',2000,CAST(N'1959-06-20' AS Date),'Nam',N'167 Lương Nhữ Học Phường 11 Quận 5 HCM','123456','0978966563','Nhân viên','nhanvien','db69fc039dcbd2962cb4d28f5891aae1',0,CAST(N'1959-06-20' AS Date),CAST(N'1959-06-20' AS Date))
+values (2,N'Nguyễn Chánh Anh Tuấn',2000,CAST(N'1959-06-20' AS Date),'Nam',N'167 Lương Nhữ Học Phường 11 Quận 5 HCM','123456','0978966563','Nhân viên','nhanvien','db69fc039dcbd2962cb4d28f5891aae1',0,CAST(N'1959-06-20' AS Date),CAST(N'1959-06-20' AS Date))
 
-
+SET IDENTITY_INSERT NhanVien on
 
 --newest
 --SELECT*FROM LoaiMonAn
