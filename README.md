@@ -1,0 +1,52 @@
+# QuanLyQuanCaPhe
+B1: Download project tại link github
+
+B2: Giải nén à mở project (ở đây mình dùng VS 2019 để build project)
+Lưu ý: khi giải nén bạn sẽ có 3 folder:
+	1. DataBase: chứa script của database và hình ảnh các món ăn có sắn của project
+	2. QuanLiQuanCaPhe: mã nguồn project
+	3. Temp: nơi chứa các class của các đối tượng (vì khi tạo kết nối tới csdl thì vòa project sẽ không show thông tin đối tượng quản
+	 lí nên cần phải setup lại các class từ csdl 1 chút nhé)
+
+B3: Chạy cơ sở dữ liệu. Ở đây mình đã tạo sẵn cơ sở dữ liệu rồi nhé
+Lưu ý: khi tạo csdl mình có tạo sẵn các món ăn và tài khoản đăng nhập vào hệ thống
+Nếu tạo csdl báo lỗi bạn nên xem lại các hình ảnh mà trong folder data base đã để đúng chưa nhé. Ví dụ như sau
+Mình để các hình ảnh ở ổ đĩa D nên chạy sẽ k có lỗi
+nếu các bạn không muốn tạo sẵn các món ăn thì có thể tạo khi vào hệ thống cũng được nhé
+
+B4: kết nối cơ sở dữ liệu với project
+Lưu ý: tên các models các bạn nên để giống mình để  tránh bị lỗi nhé
+Khi yêu cầu chọn connection data thì các bạn chọn new connection nhé
+khi nhập sever name thi có 3 các nhé
+ 1. Các bạn có thể nhập .\sqlexpress
+ 2. Các bạn có thể nhập (local)
+ 3. Chọn thanh xổ xuống để VS tự tìm sever (không nên dùng cách này nhiều vì rất lâu)
+Sau khi nhập sever name xong các bạn chọn tên csdl mà các bạn vừa tạo nhé.
+Khi chọn tên entities thì các bạn để giống minhg đề tránh bị lỗi nhé (lỗi này nhỏ các bạn có thể sửa được nhưng nên để giống 
+để không gặp khó khăn nhiều). Tên entities: QUAN_LY_QUAN_CAPHEEntities1
+Chờ 1 chút nhé
+okay v là chúng ta kết nối csdl với project thành công nhé.
+
+B5: chạy thử nào. mình chạy ở chế độ run (ctrl +f5).
+Tài khoản mình có tạo sẵn 2 tai khoản là:
+1. tk: admin
+   pass: admin
+2. tk: nhanvien
+   pass: admin
+Lưu ý: mật khẩu mình có mã hóa rồi nhé. nên các bạn không nên lấy pass ở csdl nhé.
+Lưu ý: nếu bạn chưa tạo món ăn trưa khi vào mục bán hàng sẽ không có sản phẩm nhé. vì vậy nếu không
+tạo món ăn trước thì các bạn vào tạo món ăn bằng tk admin nhé.
+
+Nếu như các bạn chưa set up lại các class đối tượng mình quản lí thì sẽ gặp tình trạng nhưa vừa rồi nhé. Khi mình click vào 1 nhân viện thì chưa show được
+thông tin của nhân viên đó.
+Bây giờ chúng ta sẽ sử dụng tới folder Temp nhé.
+Các chọn chọn hết các thuộc tính của class trong các file trong thư mục temp và past vào đúng class trong model nhé.
+Lưu ý khi các bạn past vào sẽ báo lỗi ở Onpropertychanged như mình vừa rồi. Đừng lo lắng nhé.
+Các bạn hãy kế thừa class đó từ class BaseViewModel trong thư mục viewmodel là sẽ được nhé.
+Bây giờ chúng ta thử lại với xem thông tin nhân viên nhé.
+okay v là chúng ta set up project thành công rồi nhé.
+Nếu có bất kỳ khó khăn nào có thể liên lạc với mình qua Mail:
+tumeotl@gmail.com
+Chúc các bạn thành công
+
+
